@@ -1,12 +1,12 @@
-//def factorial(x: Int): Int = {
-//  def loop(x: Int, acc: Int): Int = {
-//    if (x == 0) acc
-//    else loop(x - 1, x * acc)
-//  }
-//  loop(x, 1)
-//}
-//
-//factorial(4)
+def factorial(x: Int): Int = {
+  def loop(x: Int, acc: Int): Int = {
+    if (x == 0) acc
+    else loop(x - 1, x * acc)
+  }
+  loop(x, 1)
+}
+
+factorial(4)
 
 def countChange(money: Int, coins: List[Int]): Int = {
   def countChangeIter(money: Int, coins: List[Int], acc: Int): Int = {

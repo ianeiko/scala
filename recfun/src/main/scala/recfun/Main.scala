@@ -14,11 +14,9 @@ object Main {
    * Exercise 1
    */
     def pascal(c: Int, r: Int): Int = {
-      def pascalIter(c: Int, r: Int, acc: Int): Int = {
-        var newAcc = acc
-        if (c == 0 || r == 0 || r == c) newAcc
-        else newAcc += pascalIter(c-1, r-1, 1) + pascalIter(c, r-1, 0)
-        newAcc
+      def pascalIter(c: Int, r: Int, acc: => Int): Int = {
+        if (c == 0 || r == 0 || r == c) acc
+        else pascalIter(c-1, r-1, acc) + pascalIter(c, r-1, acc)
       }
       pascalIter(c, r, 1)
     }
@@ -33,7 +31,7 @@ object Main {
       def isCloseParen(char: Char): Boolean =
         char == ')'
 
-      def getNewCount(char: Char, count: Int): Int = {
+      def getNewCount(char: Char, count: => Int): Int = {
         var newCount = count
         if (isOpenParen(char)) newCount += 1
         else if (isCloseParen(char)) newCount -= 1
